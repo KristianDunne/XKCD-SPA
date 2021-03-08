@@ -13,7 +13,11 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setComicUrl(`https://xkcd.now.sh/?comic=${comicID}`);
+    if (!comicID) {
+      setComicUrl(latestComicUrl);
+    } else {
+      setComicUrl(`https://xkcd.now.sh/?comic=${comicID}`);
+    }
   };
 
   return (
